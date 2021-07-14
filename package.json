@@ -1,0 +1,26 @@
+{
+    "name": "solar-system",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "repository": "https://github.com/pengfeiw/solar-system",
+    "author": "wangpengfei <2601339907@qq.com>",
+    "license": "MIT",
+    "scripts": {
+        "buildDev": "webpack --mode development",
+        "build": "webpack --mode production",
+        "start": "webpack serve --mode development"
+    },
+    "devDependencies": {
+        "css-loader": "^5.2.6",
+        "html-webpack-plugin": "^5.3.1",
+        "style-loader": "^2.0.0",
+        "ts-loader": "^9.2.2",
+        "typescript": "^4.3.2",
+        "webpack": "^5.37.1",
+        "webpack-cli": "^4.7.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "gl-matrix": "^3.3.0"
+    }
+}
