@@ -127,7 +127,7 @@ export const getSpherePositions_drawTriangles = (splitCountH: number, splitCount
     textureCoords.push(texX2, texYT);
 
     // 法向量
-    for (let i = 0; i < vertices.length - 18; i += 18) {
+    for (let i = 0; i < vertices.length; i += 18) {
         const vec11: vec3 = [vertices[i + 3] - vertices[i], vertices[i + 4] - vertices[i + 1], vertices[i + 5] - vertices[i + 2]];
         const vec12: vec3 = [vertices[i + 6] - vertices[i + 3], vertices[i + 7] - vertices[i + 4], vertices[i + 8] - vertices[i + 5]];
         const norml1 = vec3.cross(vec3.create(), vec11, vec12);

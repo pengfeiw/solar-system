@@ -336,10 +336,12 @@ const draw = (gl: WebGL2RenderingContext) => {
 
     // ---行星环
     const starRingVaos: WebGLVertexArrayObject[] = [];
+    const starRingVertices: number[][] = [];
     for (let i = 0; i < planets.length; i++) {
         const withRing = planets[i].starRingAxis && planets[i].starRingOuterRadius && planets[i].starRingInnerRadius;
         if (!withRing) {
             starRingVaos.push(null);
+            starRingVertices.push([]);
             continue;
         }
 
@@ -347,6 +349,7 @@ const draw = (gl: WebGL2RenderingContext) => {
         gl.bindVertexArray(ringVao);
 
         const {vertices: ringVertices, texCoords: ringTexCoords} = getRingPoints(planets[i].starRingOuterRadius, planets[i].starRingInnerRadius);
+        starRingVertices.push(ringVertices);
         const ringPosVbo = gl.createBuffer();
         const ringPosLocation = gl.getAttribLocation(planetShader.program, "aPos");
         gl.bindBuffer(gl.ARRAY_BUFFER, ringPosVbo);
@@ -454,7 +457,7 @@ const draw = (gl: WebGL2RenderingContext) => {
 
                 planetShader.setMat4("model", model);
                 gl.bindTexture(gl.TEXTURE_2D, planetTextures[i]);
-                gl.drawArrays(gl.TRIANGLES, 0, sunVertices.length / 3);
+                gl.drawArrays(gl.TRIANGLES, 0, starRingVertices[i].length / 3);
             }
         }
 
