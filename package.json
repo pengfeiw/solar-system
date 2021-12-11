@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "index.ts",
     "repository": "https://github.com/pengfeiw/solar-system",
-    "author": "wangpengfei <2601339907@qq.com>",
+    "author": "wangpengfei <pengfeixc@sina.com>",
     "license": "MIT",
     "scripts": {
         "buildDev": "webpack --mode development",
